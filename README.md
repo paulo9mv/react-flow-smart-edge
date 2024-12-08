@@ -25,7 +25,7 @@ With `yarn`:
 yarn add @tisoap/react-flow-smart-edge
 ```
 
-This package is only compatible with [**version 11 or newer** of React Flow Edge](https://reactflow.dev/docs/guides/migrate-to-v11/).
+This package is only compatible with [**version 12 or newer** of React Flow Edge](https://reactflow.dev/docs/guides/migrate-to-v12/).
 
 ## Support
 
@@ -51,9 +51,9 @@ Each one can be imported individually as a named export.
 
 ```jsx
 import React from 'react'
-import { ReactFlow } from 'reactflow'
+import { ReactFlow } from '@xyflow/react'
 import { SmartBezierEdge } from '@tisoap/react-flow-smart-edge'
-import 'reactflow/dist/style.css'
+import '@xyflow/react/dist/style.css'
 
 const nodes = [
 	{
@@ -116,7 +116,7 @@ Just like you can use `getBezierPath` from `reactflow` to create a [custom edge 
 
 ```jsx
 import React from 'react'
-import { useNodes, BezierEdge } from 'reactflow'
+import { useNodes, BezierEdge } from '@xyflow/react'
 import { getSmartEdge } from '@tisoap/react-flow-smart-edge'
 
 const foreignObjectSize = 200

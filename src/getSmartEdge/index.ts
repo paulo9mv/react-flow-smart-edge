@@ -11,7 +11,7 @@ import type {
 	PathFindingFunction,
 	SVGDrawFunction
 } from '../functions'
-import type { Node, EdgeProps } from 'reactflow'
+import type { Node, EdgeProps } from '@xyflow/react'
 
 export type EdgeParams = Pick<
 	EdgeProps,
@@ -30,9 +30,9 @@ export type GetSmartEdgeOptions = {
 	generatePath?: PathFindingFunction
 }
 
-export type GetSmartEdgeParams<NodeDataType = unknown> = EdgeParams & {
+export type GetSmartEdgeParams = EdgeParams & {
 	options?: GetSmartEdgeOptions
-	nodes: Node<NodeDataType>[]
+	nodes: Node[]
 }
 
 export type GetSmartEdgeReturn = {
@@ -41,7 +41,7 @@ export type GetSmartEdgeReturn = {
 	edgeCenterY: number
 }
 
-export const getSmartEdge = <NodeDataType = unknown>({
+export const getSmartEdge = ({
 	options = {},
 	nodes = [],
 	sourceX,
@@ -50,7 +50,7 @@ export const getSmartEdge = <NodeDataType = unknown>({
 	targetY,
 	sourcePosition,
 	targetPosition
-}: GetSmartEdgeParams<NodeDataType>): GetSmartEdgeReturn | null => {
+}: GetSmartEdgeParams): GetSmartEdgeReturn | null => {
 	try {
 		const {
 			drawEdge = svgDrawSmoothLinePath,
@@ -63,7 +63,7 @@ export const getSmartEdge = <NodeDataType = unknown>({
 
 		// We use the node's information to generate bounding boxes for them
 		// and the graph
-		const { graphBox, nodeBoxes } = getBoundingBoxes<NodeDataType>(
+		const { graphBox, nodeBoxes } = getBoundingBoxes(
 			nodes,
 			nodePadding,
 			gridRatio

@@ -4,7 +4,7 @@ import { GraphWrapper } from './GraphWrapper'
 import { SimulateDragAndDrop, wait } from './SimulateDragAndDrop'
 import { SmartBezier, SmartStraight, SmartStep } from './SmartEdge.stories'
 import type { Meta, Story } from '@storybook/react'
-import type { ReactFlowProps } from 'reactflow'
+import type { ReactFlowProps } from '@xyflow/react'
 
 export default {
 	title: 'Interactions',
