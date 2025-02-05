@@ -12,9 +12,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          cache: "yarn"
 
       - name: Install Node
         uses: actions/setup-node@v3
@@ -22,7 +19,7 @@ jobs:
           node-version: "18"
 
       - name: Install Dependencies
-        run: yarn --frozen-lockfile --silent
+        run: yarn install --immutable
 
       - name: Check Types
         run: yarn check-types
@@ -32,8 +29,3 @@ jobs:
 
       - name: Build
         run: yarn build
-
-      - name: Publish to Chromatic
-        uses: chromaui/action@v1
-        with:
-          projectToken: f5598c842f1a
