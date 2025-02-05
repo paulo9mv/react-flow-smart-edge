@@ -9,3 +9,5 @@ tmp
 
 # .yarn folders
 .yarn/install-state.gz
+
+.env
